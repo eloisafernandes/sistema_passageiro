@@ -1,0 +1,42 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background:rgb(230, 230, 230) !important;
+}
+
+
+.container-login{
+    border-radius: 20px;
+    width: 25%;
+    height: 35%;   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(128, 128, 128, 0.5);
+}
+.input-login{
+    width: 80% !important;
+}
+.text-form p{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(3, 28, 82);
+    font-size: 20px;
+    text-align: center;
+    text-decoration: solid;
+}
+.text-form a{
+    color: blue;
+}
+.text-form span, a{
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    .container-login {
+        width: 90%;
+        height: 50%;
+    }
+}
