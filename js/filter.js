@@ -15,8 +15,8 @@ function search() {
         filteredPassagens = filteredPassagens.filter(passagem => passagem.classe === classe);
     }
 
-    if (cpf !== "") {
-        filteredPassagens = filteredPassagens.filter(passagem => passagem.cpf === cpf);
+    if (formatarCPF(cpf) !== "") {
+        filteredPassagens = filteredPassagens.filter(passagem => passagem.cpf === formatarCPF(cpf));
     }
 
     filteredPassagens.forEach(p => {
@@ -48,5 +48,17 @@ window.onload = () => {
         row.insertCell(4).textContent = passagem.classe;
     });
 };
+
+
+
+function formatarCPF(cpf) {
+    cpf = cpf.replace(/\D/g, '');
+
+    if (cpf.length !== 11) {
+        return cpf;
+    }
+
+    return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+}
 
 

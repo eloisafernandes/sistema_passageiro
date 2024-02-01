@@ -1,21 +1,18 @@
 
-import {Passageiro, passagens} from  './data.mjs';
 
 function login() {
+    const cpf = document.getElementById('cpf').value;
     const password = document.getElementById('password').value;
-    const user = document.getElementById('user').value;
     passagens.forEach(passagem => {
-        if(passagem.cpf == user && passagem.senha == password){
-            console.log('loguei 1');
+        if (passagem.cpf == formatarCPF(cpf) && passagem.senha == password) {
             window.location.href = "./home.html";
-            console.log('loguei2');
         }
-        else{
+        else {
             document.getElementById('error-login').innerHTML = "Dados inválidos";
 
         }
     });
-   
+
 }
 
 function validarCPF(cpf) {
@@ -43,7 +40,7 @@ function validarCPF(cpf) {
     return (parseInt(cpf.charAt(9)) === digito1 && parseInt(cpf.charAt(10)) === digito2);
 }
 
-function register(){
+function register() {
     document.getElementById('error-cpf').innerHTML = '';
     document.getElementById('error-password').innerHTML = '';
     document.getElementById('error-name').innerHTML = '';
@@ -57,41 +54,51 @@ function register(){
     const class_ = document.getElementById('class').value;
 
     var regist = false;
-    if(cpf == '' || password == '' || name == '' || address == '' || class_ === ''){
-        if(!validarCPF(cpf)){
+    if (cpf == '' || password == '' || name == '' || address == '' || class_ === '') {
+        if (!validarCPF(cpf)) {
             document.getElementById('error-cpf').innerHTML = "CPF inválido";
         }
-        if (cpf == ''){
+        if (cpf == '') {
             document.getElementById('error-cpf').innerHTML = "CPF vazio";
         }
-        if (password == '')    {
+        if (password == '') {
             document.getElementById('error-password').innerHTML = "A senha está vazia.";
         }
-        if (name == ''){
+        if (name == '') {
             document.getElementById('error-name').innerHTML = "O nome precisa estar preenchido";
         }
-        if (address == '')    {
+        if (address == '') {
             document.getElementById('error-address').innerHTML = "Este campo precisar ser preenchido";
         }
-        if (class_ === "")    {
+        if (class_ === "") {
             document.getElementById('error-class').innerHTML = "Por favor, selecione uma classe";
         }
     }
-    else{
-        if(validarCPF(cpf)){
-            var p = new Passageiro(passagens.length+1, name, cpf, address, class_, password);
+    else {
+        if (validarCPF(cpf)) {
+            var p = new Passageiro(passagens.length + 1, name, formatarCPF(cpf), address, class_, password);
             if (!passagens.some(passagem => passagem.cpf === p.cpf)) {
                 passagens.push(p);
-                console.log('Novo Passageiro adicionado:', p);
+                localStorage.setItem("global_array", JSON.stringify(passagens));
                 window.location.href = "./login.html";
             } else {
                 document.getElementById('error-cpf').innerHTML = "CPF já cadastrado";
-                
+
             }
         }
-        else{
+        else {
             document.getElementById('error-cpf').innerHTML = "CPF inválido";
 
         }
     }
+}
+
+function formatarCPF(cpf) {
+    cpf = cpf.replace(/\D/g, '');
+
+    if (cpf.length !== 11) {
+        return cpf;
+    }
+
+    return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
 }
