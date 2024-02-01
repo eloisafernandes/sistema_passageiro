@@ -17,6 +17,16 @@ body{
     align-items: center;
     background-color: rgba(128, 128, 128, 0.5);
 }
+.container-register{
+    border-radius: 20px;
+    width: 25%;
+    height: 70%;   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(128, 128, 128, 0.5);
+}
 .input-login{
     width: 80% !important;
 }
@@ -33,10 +43,21 @@ body{
 .text-form span, a{
     font-size: 14px;
 }
+.form-select-bg{
+    background-color: red !important;
+}
 
 @media (max-width: 600px) {
     .container-login {
         width: 90%;
         height: 50%;
     }
+    .container-register {
+        width: 90%;
+        height: 70%;
+    }
+}
+#error-cpf, #error-password, #error-name, #error-address, #error-class, #error-login{
+    color:red;
+    font-size: 12px;
 }
