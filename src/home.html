@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <img src="https://conteudo.imguol.com.br/c/colunas/2a/2021/08/12/aviao-da-gol-decola-do-aeroporto-de-congonhas-3jul2019-1628802936514_v2_1920x1280.jpg"
+            alt="">
+        <h1>IMD Airlines</h1>
+    </header>
+
+    <div class="container search-area">
+        <div class="row g-3">
+            <div class="col-md-8 col-sm-5">
+                <input type="text" class="form-control" id="cpf-field" placeholder="123.456.789-10">
+            </div>
+            <div class="col-md-2 col-sm-5">
+                <select id="classe-field" class="form-select" aria-label="Classe">
+                    <option selected>Sem filtro</option>
+                    <option value="1ª classe">1ª classe</option>
+                    <option value="2ª classe">2ª classe</option>
+                    <option value="3ª classe">3ª classe</option>
+                </select>
+            </div>
+            <div class="col-md-2 col-sm-2">
+                <button type="submit" class="btn btn-success mb-3" onclick="search()">Buscar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container result-area">
+        <h2>Resultado da busca</h2><br>
+        <table class="table table-striped" id="result-table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">CPF</th>
+                    <th scope="col">Endereço</th>
+                    <th scope="col">Classe</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+    <script src="js/home.js"></script>
+</body>
+
+</html>
