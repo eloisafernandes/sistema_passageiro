@@ -76,6 +76,7 @@ function register() {
     }
     else {
         if (validarCPF(cpf)) {
+            passagens = JSON.parse(localStorage.getItem("global_array"));
             var p = new Passageiro(passagens.length + 1, name, formatarCPF(cpf), address, class_, password);
             if (!passagens.some(passagem => passagem.cpf === p.cpf)) {
                 passagens.push(p);

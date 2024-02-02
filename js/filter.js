@@ -49,8 +49,6 @@ window.onload = () => {
     });
 };
 
-
-
 function formatarCPF(cpf) {
     cpf = cpf.replace(/\D/g, '');
 

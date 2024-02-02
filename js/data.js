@@ -19,4 +19,3 @@ if (!localStorage.getItem("global_array")) {
 } else {
     passagens = JSON.parse(localStorage.getItem("global_array"));
 }
-
